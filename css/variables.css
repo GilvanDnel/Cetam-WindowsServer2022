@@ -1,0 +1,52 @@
+/* ========================================================
+   CETAM DESIGN SYSTEM - VARIÁVEIS E TOKENS VISUAIS
+   ======================================================== */
+:root {
+    /* Paleta Oficial CETAM & Governo do Amazonas */
+    --cetam-green: #00873E;
+    --cetam-green-light: #00B354;
+    --cetam-green-glow: rgba(0, 179, 84, 0.4);
+    --cetam-green-bg: rgba(0, 135, 62, 0.12);
+
+    --cetam-gold: #FFB81C;
+    --cetam-gold-light: #FFD15C;
+    --cetam-gold-glow: rgba(255, 184, 28, 0.4);
+    --cetam-gold-bg: rgba(255, 184, 28, 0.12);
+
+    --cetam-blue: #38BDF8;
+    --cetam-blue-glow: rgba(56, 189, 248, 0.35);
+
+    --cetam-red: #EF4444;
+    --cetam-red-bg: rgba(239, 68, 68, 0.15);
+
+    /* Tons de Fundo e Vidro (Dark Tech Premium) */
+    --bg-dark-base: #060E1A;
+    --bg-dark-surface: rgba(10, 25, 47, 0.82);
+    --bg-card: rgba(15, 30, 54, 0.75);
+    --bg-card-hover: rgba(20, 42, 74, 0.9);
+    --bg-card-inner: rgba(6, 14, 26, 0.7);
+
+    --border-glass: rgba(255, 255, 255, 0.1);
+    --border-glass-hover: rgba(0, 179, 84, 0.5);
+    --border-gold: rgba(255, 184, 28, 0.4);
+
+    /* Tipografia e Cores de Texto */
+    --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Consolas', 'Courier New', monospace;
+
+    --text-pure: #FFFFFF;
+    --text-main: #F1F5F9;
+    --text-muted: #94A3B8;
+    --text-dim: #64748B;
+
+    /* Efeitos e Sombras */
+    --shadow-card: 0 12px 30px -10px rgba(0, 0, 0, 0.6);
+    --shadow-glow-green: 0 0 25px rgba(0, 179, 84, 0.25);
+    --shadow-glow-gold: 0 0 25px rgba(255, 184, 28, 0.25);
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+    --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}

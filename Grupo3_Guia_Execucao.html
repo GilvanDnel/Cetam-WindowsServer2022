@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Manual Operacional Grupo 3 - Windows Server 2022</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap');
+    
+    @page {
+        size: A4;
+        margin: 15mm 15mm 15mm 15mm;
+    }
+    
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #1e293b;
+        background-color: #ffffff;
+        line-height: 1.5;
+        font-size: 11.5px;
+        margin: 0;
+        padding: 0;
+    }
+    
+    h1 {
+        color: #0f172a;
+        font-size: 19px;
+        border-bottom: 3px solid #2563eb;
+        padding-bottom: 6px;
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+    
+    h2 {
+        color: #1e3a8a;
+        font-size: 14.5px;
+        background-color: #f1f5f9;
+        padding: 6px 10px;
+        border-left: 4px solid #2563eb;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        page-break-after: avoid;
+    }
+    
+    h3 {
+        color: #0369a1;
+        font-size: 13px;
+        margin-top: 14px;
+        margin-bottom: 6px;
+        page-break-after: avoid;
+    }
+    
+    h4 {
+        color: #0f766e;
+        font-size: 12px;
+        margin-top: 10px;
+        margin-bottom: 4px;
+        page-break-after: avoid;
+    }
+    
+    p {
+        margin-top: 3px;
+        margin-bottom: 6px;
+    }
+    
+    strong {
+        color: #0f172a;
+    }
+    
+    code {
+        font-family: 'Consolas', 'Courier New', monospace;
+        background-color: #f1f5f9;
+        color: #0f172a;
+        padding: 2px 4px;
+        border-radius: 3px;
+        font-size: 10.5px;
+        border: 1px solid #cbd5e1;
+    }
+    
+    pre {
+        background-color: #0f172a;
+        color: #f8fafc;
+        padding: 10px 12px;
+        border-radius: 6px;
+        overflow-x: auto;
+        font-size: 10.5px;
+        line-height: 1.45;
+        margin: 8px 0;
+        page-break-inside: avoid;
+    }
+    
+    pre code {
+        background-color: transparent;
+        color: inherit;
+        padding: 0;
+        border: none;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 12px 0;
+        font-size: 10.5px;
+        page-break-inside: avoid;
+    }
+    
+    th {
+        background-color: #1e293b;
+        color: #ffffff;
+        text-align: left;
+        padding: 6px 8px;
+        font-weight: 600;
+        border: 1px solid #334155;
+    }
+    
+    td {
+        padding: 6px 8px;
+        border: 1px solid #cbd5e1;
+    }
+    
+    tr:nth-child(even) {
+        background-color: #f8fafc;
+    }
+    
+    ul, ol {
+        margin-top: 3px;
+        margin-bottom: 8px;
+        padding-left: 20px;
+    }
+    
+    li {
+        margin-bottom: 3px;
+    }
+    
+    hr {
+        border: none;
+        border-top: 1px solid #e2e8f0;
+        margin: 16px 0;
+    }
+
+    /* Callout & Alert Box Styles */
+    .callout {
+        border-left: 4px solid #3b82f6;
+        background-color: #f8fafc;
+        padding: 10px 14px;
+        margin: 12px 0;
+        border-radius: 0 6px 6px 0;
+        page-break-inside: avoid;
+    }
+    
+    .callout-title {
+        font-weight: bold;
+        font-size: 11.5px;
+        margin-bottom: 4px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .callout-body {
+        font-size: 11px;
+        line-height: 1.45;
+    }
+    
+    .callout-note {
+        border-left-color: #3b82f6;
+        background-color: #eff6ff;
+    }
+    .callout-note .callout-title { color: #1d4ed8; }
+    
+    .callout-important {
+        border-left-color: #6366f1;
+        background-color: #eef2ff;
+    }
+    .callout-important .callout-title { color: #4338ca; }
+    
+    .callout-warning {
+        border-left-color: #f59e0b;
+        background-color: #fffbeb;
+    }
+    .callout-warning .callout-title { color: #b45309; }
+    
+    .callout-caution {
+        border-left-color: #ef4444;
+        background-color: #fef2f2;
+    }
+    .callout-caution .callout-title { color: #b91c1c; }
+
+    blockquote {
+        border-left: 4px solid #94a3b8;
+        background-color: #f8fafc;
+        margin: 8px 0;
+        padding: 6px 12px;
+        color: #475569;
+        font-style: italic;
+    }
+</style>
+</head>
+<body>
+<h1>Manual Operacional e Guia de Execução Sênior - Grupo 3</h1>
+<h2>Administração, Segurança e Serviços Corporativos</h2>
+<p><strong>Projeto:</strong> Implantação da Infraestrutura de TI do Instituto Esperança Digital  </p>
+<p><strong>Sistema Operacional:</strong> Windows Server 2022 Datacenter & Ubuntu Server 24.04 LTS  </p>
+<br/>
+<hr/>
+<br/>
+<h3>🔑 Quadro de Credenciais e Parâmetros de Rede (Integração Grupos 1, 2 e 3)</h3>
+<br/>
+<table><thead><tr>
+<th>Parâmetro / Recurso</th>
+<th>Valor / Configuração</th>
+<th>Descrição / Observação Técnica</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Domínio Corporativo</strong></td>
+<td><code>esperancadigital.local</code></td>
+<td>FQDN do Active Directory Domain Services (Grupo 2)</td>
+</tr>
+<tr>
+<td><strong>Controlador de Domínio (DC)</strong></td>
+<td><code>SRV-DC01</code></td>
+<td>Hostname do Windows Server 2022</td>
+</tr>
+<tr>
+<td><strong>IP Fixo Servidor Windows (DC/DNS)</strong></td>
+<td><code>192.168.10.2</code> (Máscara <code>255.255.255.0</code>)</td>
+<td>IP estático do DC e Servidor DNS Principal</td>
+</tr>
+<tr>
+<td><strong>IP Fixo Gateway Linux (Ubuntu)</strong></td>
+<td><code>192.168.10.1</code></td>
+<td>Interface LAN <code>enp1s0</code> do Ubuntu Server (Grupo 1 e 2)</td>
+</tr>
+<tr>
+<td><strong>Faixa DHCP (Distribuída pelo Linux)</strong></td>
+<td><code>192.168.10.100</code> até <code>192.168.10.200</code></td>
+<td>Escopo dinâmico entregando DNS Primário <code>192.168.10.2</code></td>
+</tr>
+<tr>
+<td><strong>Login Administrador Windows</strong></td>
+<td><code>Administrator</code> (ou <code>administrator</code>)</td>
+<td>Conta de Domínio com privilégios totais de gestão</td>
+</tr>
+<tr>
+<td><strong>Senha Administrador Windows</strong></td>
+<td><code>Manaus@</code></td>
+<td>Credencial oficial do Administrador (Grupos 1 e 2)</td>
+</tr>
+<tr>
+<td><strong>Login Servidor Linux (Ubuntu)</strong></td>
+<td><code>srv</code></td>
+<td>Usuário administrador com privilégios sudo / root</td>
+</tr>
+<tr>
+<td><strong>Senha Servidor Linux</strong></td>
+<td><code>manaus</code></td>
+<td>Senha de acesso do servidor Ubuntu</td>
+</tr>
+<tr>
+<td><strong>Padrão de Login dos Usuários</strong></td>
+<td><code>nome.sobrenome</code> (Ex: <code>joao.silva</code>, <code>sec.usuario</code>)</td>
+<td>Contas cadastradas nas OUs departamentais</td>
+</tr>
+<tr>
+<td><strong>Senha Padrão dos Usuários</strong></td>
+<td><code>@esperancadigital-2026</code></td>
+<td>Política de primeiro acesso dos colaboradores/alunos</td>
+</tr>
+<tr>
+<td><strong>IP Impressora Geral (Corporativa)</strong></td>
+<td><code>192.168.10.20</code> (<code>IMP_Geral</code>)</td>
+<td>Fila de impressão TCP/IP centralizada e publicada no AD DS para todos os setores</td>
+</tr>
+</tbody></table>
+<br/>
+<hr/>
+<br/>
+<h2>🧰 SEÇÃO 0: Caixa de Ferramentas Administrativas e Matriz de Escopos</h2>
+<br/>
+<p>Um dos maiores desafios durante a implantação é a confusão entre ferramentas com nomes semelhantes ou escopos conflitantes. Utilize sempre o console correto para cada tarefa:</p>
+<br/>
+<table><thead><tr>
+<th>Console / Comando</th>
+<th>Nome da Ferramenta</th>
+<th>Escopo de Atuação</th>
+<th>Quando Utilizar no Grupo 3</th>
+</tr></thead><tbody>
+<tr>
+<td><strong><code>gpmc.msc</code></strong></td>
+<td>Gerenciamento de Diretiva de Grupo (GPMC)</td>
+<td><strong>Todo o Domínio ou OUs</strong></td>
+<td>Criar e editar GPOs de senha, papel de parede, bloqueio de painel e USB.</td>
+</tr>
+<tr>
+<td><strong><code>dsa.msc</code></strong></td>
+<td>Usuários e Computadores do AD (ADUC)</td>
+<td><strong>Objetos do Domínio</strong></td>
+<td>Gerenciar contas, grupos, OUs e configurar <strong>Horário de Logon (Logon Hours)</strong> individual.</td>
+</tr>
+<tr>
+<td><strong><code>secpol.msc</code></strong></td>
+<td>Diretiva de Segurança Local</td>
+<td><strong>Apenas a Máquina Local</strong></td>
+<td>⚠️ <em>NÃO USAR PARA O DOMÍNIO</em>. Usada apenas em servidores fora de domínio.</td>
+</tr>
+<tr>
+<td><strong><code>printmanagement.msc</code></strong></td>
+<td>Gerenciamento de Impressão</td>
+<td><strong>Servidor de Impressão</strong></td>
+<td>Adicionar drivers, criar portas TCP/IP, compartilhar impressoras e implantar via GPO.</td>
+</tr>
+<tr>
+<td><strong><code>wf.msc</code></strong></td>
+<td>Windows Defender Firewall Avançado</td>
+<td><strong>Segurança de Rede do Host</strong></td>
+<td>Habilitar regras de entrada para compartilhamento SMB e ICMP Ping.</td>
+</tr>
+<tr>
+<td><strong><code>dnsmgmt.msc</code></strong></td>
+<td>Gerenciador DNS</td>
+<td><strong>Resolução de Nomes</strong></td>
+<td>Validar Zona Direta (<code>esperancadigital.local</code>) e Zona Reversa (<code>10.168.192.in-addr.arpa</code>).</td>
+</tr>
+</tbody></table>
+<br/>
+<hr/>
+<br/>
+<h2>🛠️ ETAPA 1: Gestão de Identidade e Políticas de Grupo (GPO)</h2>
+<br/>
+<h3>1.1. Política de Senhas e Bloqueio de Conta (Default Domain Policy)</h3>
+<br/>
+<div class="callout callout-important"><div class="callout-title">⭐ IMPORTANTE</div><div class="callout-body"><strong>Regra Arquitetural do Windows Server:</strong><br/>Políticas de senha e bloqueio de conta para usuários de domínio <strong>só entram em vigor globalmente quando editadas na <code>Default Domain Policy</code> localizada na RAIZ do domínio</strong>. Configurar essas diretivas em GPOs vinculadas a OUs filhas (ex: <code>OU_Estacoes</code>) não surtirá efeito nas autenticações do Active Directory.</div></div>
+<br/>
+<h4>📍 Árvore de Navegação e Clique a Clique:</h4>
+<ol start="1"><li>No servidor <code>SRV-DC01</code>, pressione <strong><code>Win + R</code></strong>, digite <strong><code>gpmc.msc</code></strong> e pressione <strong>Enter</strong> (ou vá em <code>Server Manager</code> ➔ <code>Ferramentas</code> ➔ <code>Gerenciamento de Diretiva de Grupo</code>).</li><li>Expanda a árvore navegando em:</li></ol>
+<p>   <code>Gerenciamento de Diretiva de Grupo</code> ➔ <code>Floresta: esperancadigital.local</code> ➔ <code>Domínios</code> ➔ <code>esperancadigital.local</code>.</p>
+<ol start="3"><li>Clique com o <strong>botão direito do mouse</strong> sobre <strong><code>Default Domain Policy</code></strong> ➔ selecione <strong><code>Editar...</code></strong>.</li><li>No menu esquerdo do <em>Editor de Gerenciamento de Diretiva de Grupo</em>, expanda:</li></ol>
+<p>   <code>Configuração do Computador</code> ➔ <code>Diretivas</code> ➔ <code>Configurações do Windows</code> ➔ <code>Configurações de Segurança</code> ➔ <code>Políticas de Conta</code>.</p>
+<br/>
+<pre><code class="language-">
+Políticas de Conta (Account Policies)
+ ├── 📂 Política de Senhas (Password Policy)           &lt;--- Item A
+ └── 📂 Política de Bloqueio de Conta (Account Lockout) &lt;--- Item B (pasta logo abaixo)
+</code></pre>
+<br/>
+<h4>✍️ Configuração do Item A — 📂 Pasta <code>Política de Senhas</code>:</h4>
+<ul><li>Dê um clique simples na pasta <strong><code>Política de Senhas</code></strong> no painel esquerdo:</li></ul>
+<ol start="1"><li><strong>Tamanho mínimo da senha:</strong> Duplo clique ➔ Marcar <code>Definir esta configuração</code> ➔ Digitar <strong><code>8</code></strong> caracteres ➔ <code>Aplicar</code> ➔ <code>OK</code>.</li><li><strong>A senha deve satisfazer a requisitos de complexidade:</strong> Duplo clique ➔ Marcar <strong><code>Habilitado</code></strong> ➔ <code>Aplicar</code> ➔ <code>OK</code>.</li><li><strong>Exigir histórico de senhas:</strong> Duplo clique ➔ Digitar <strong><code>5</code></strong> senhas memorizadas ➔ <code>Aplicar</code> ➔ <code>OK</code>.</li><li><strong>Tempo máximo de vida da senha:</strong> Duplo clique ➔ Digitar <strong><code>90</code></strong> dias ➔ <code>Aplicar</code> ➔ <code>OK</code>.</li></ol>
+<br/>
+<h4>✍️ Configuração do Item B — 📂 Pasta <code>Política de Bloqueio de Conta</code> (Pasta logo abaixo):</h4>
+<ul><li>Dê um clique simples na pasta <strong><code>Política de Bloqueio de Conta</code></strong> no painel esquerdo:</li></ul>
+<ol start="1"><li><strong>Limiar de bloqueio de conta:</strong> Duplo clique ➔ Digitar <strong><code>5</code></strong> tentativas de logon incorretas ➔ <code>Aplicar</code>.</li><li><em>(O Windows exibirá um aviso ajustando automaticamente a Duração do Bloqueio para 30 min e Zerar Contador para 30 min. Clique em <strong><code>OK</code></strong>)</em>.</li><li>Clique em <strong><code>OK</code></strong> para confirmar.</li></ol>
+<br/>
+<h4>✅ Validação e Confirmação:</h4>
+<ul><li>Abra o Prompt de Comando (<code>cmd</code>) no servidor ou estação e execute:</li></ul>
+<p>  <code></code>`cmd</p>
+<p>  gpupdate /force</p>
+<p>  net accounts</p>
+<p>  <code></code>`</p>
+<ul><li><strong>Resultado Esperado:</strong> O terminal deve exibir:</li><li><code>Tamanho mínimo da senha: 8</code></li><li><code>Histórico de senhas mantido: 5</code></li><li><code>Limiar de Bloqueio: 5</code></li><li><code>Duração do bloqueio (minutos): 30</code></li></ul>
+<br/>
+<div class="callout callout-caution"><div class="callout-title">🚨 ALERTA CRÍTICO / INCIDENTE REAL</div><div class="callout-body"><strong>🚨 Incidente Real 01: O Mistério do <code>net accounts</code> desatualizado</strong><br/><em> <strong>Sintoma:</strong> O comando <code>net accounts</code> continua exibindo valores antigos padrão (42 dias, 7 caracteres).<br/></em> <strong>Causa:</strong> A edição foi feita em uma GPO vinculada a uma OU filha ou na <em>Default Domain Controllers Policy</em>.<br/>* <strong>Solução:</strong> Certifique-se de editar exclusivamente a <strong><code>Default Domain Policy</code></strong> na raiz do domínio e execute <code>gpupdate /force</code>.</div></div>
+<br/>
+<hr/>
+<br/>
+<h3>1.2. Desmistificando Mecanismos de Tempo (Inatividade vs Logoff vs Expediente)</h3>
+<br/>
+<p>É comum confundir o bloqueio de tela automático, o encerramento forçado de sessão e a janela de horário de trabalho:</p>
+<br/>
+<table><thead><tr>
+<th>Mecanismo</th>
+<th>O que faz na prática?</th>
+<th>Onde se configura?</th>
+<th>Escopo</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Limite de Inatividade da Máquina</strong></td>
+<td>Bloqueia a tela (<code>Win + L</code>) após tempo ocioso sem mexer mouse/teclado.</td>
+<td>GPMC ➔ Diretivas Locais ➔ Opções de Segurança</td>
+<td>Computador / GPO</td>
+</tr>
+<tr>
+<td><strong>Forçar Logoff ao Expirar Horário</strong></td>
+<td>Desconecta a sessão quando o horário de expediente cadastrado termina.</td>
+<td>GPMC ➔ Diretivas Locais ➔ Opções de Segurança</td>
+<td>Computador / GPO</td>
+</tr>
+<tr>
+<td><strong>Horário de Logon (Logon Hours)</strong></td>
+<td>Define os dias da semana e horários em que o usuário tem permissão para logar.</td>
+<td><strong>ADUC (<code>dsa.msc</code>)</strong> ➔ Usuário ➔ Conta ➔ Horário de Logon</td>
+<td>Objeto de Usuário</td>
+</tr>
+</tbody></table>
+<br/>
+<h4>✍️ Configuração do Bloqueio Automático de Tela por Inatividade (GPO):</h4>
+<ol start="1"><li>No console <code>gpmc.msc</code>, abra a <strong><code>Default Domain Policy</code></strong> ou crie na <strong><code>GPO_Seguranca_e_Padronizacao</code></strong>.</li><li>Navegue em: <code>Configuração do Computador</code> ➔ <code>Diretivas</code> ➔ <code>Configurações do Windows</code> ➔ <code>Configurações de Segurança</code> ➔ <code>Diretivas Locais</code> ➔ <code>Opções de Segurança</code>.</li><li>No painel direito, localize a política: <strong><code>Logon interativo: Limite de inatividade da máquina</code></strong>.</li><li>Habilite a diretiva e defina o valor como <strong><code>900</code></strong> segundos (15 minutos) ➔ <code>Aplicar</code> ➔ <code>OK</code>.</li></ol>
+<br/>
+<h4>✍️ Configuração do Horário de Expediente dos Usuários (ADUC <code>dsa.msc</code>):</h4>
+<ol start="1"><li>Abra o console <strong><code>dsa.msc</code></strong> (<code>Active Directory Users and Computers</code>).</li><li>Expanda o domínio <code>esperancadigital.local</code> ➔ navegue até a OU desejada (ex: <code>OU_Secretaria</code>).</li><li>Clique com o botão direito sobre o usuário (ou selecione múltiplos usuários) ➔ <strong><code>Propriedades</code></strong>.</li><li>Clique na aba <strong><code>Conta</code></strong> (Account) ➔ clique no botão <strong><code>Horário de Logon...</code></strong> (Logon Hours).</li><li>Selecione os horários permitidos (ex: Segunda a Sexta, das 07:00 às 18:00) e marque <strong><code>Logon Permitido</code></strong> / <strong><code>Logon Negado</code></strong> ➔ <code>OK</code> ➔ <code>Aplicar</code>.</li></ol>
+<br/>
+<hr/>
+<br/>
+<h3>1.3. GPO de Segurança, Wallpaper Institucional e Bloqueio USB</h3>
+<br/>
+<h4>📍 Criação e Edição da GPO:</h4>
+<ol start="1"><li>No console <code>gpmc.msc</code>, clique com o botão direito sobre a pasta <strong><code>Objetos de Diretiva de Grupo</code></strong> ➔ <strong><code>Novo</code></strong> ➔ Digite: <strong><code>GPO_Seguranca_e_Padronizacao</code></strong> ➔ <code>OK</code>.</li><li>Clique com o botão direito sobre <code>GPO_Seguranca_e_Padronizacao</code> ➔ <strong><code>Editar...</code></strong>.</li></ol>
+<br/>
+<h4>✍️ Item A: Bloqueio do Painel de Controle e Configurações</h4>
+<ul><li>Navegue em: <code>Configuração do Usuário</code> ➔ <code>Diretivas</code> ➔ <code>Modelos Administrativos</code> ➔ <code>Painel de Controle</code>.</li><li>Dê duplo clique em <strong><code>Proibir acesso ao Painel de Controle e à configuração do PC</code></strong> ➔ Selecione <strong><code>Habilitado</code></strong> ➔ <code>Aplicar</code> ➔ <code>OK</code>.</li></ul>
+<br/>
+<h4>✍️ Item B: Papel de Parede Institucional (Desktop Wallpaper UNC)</h4>
+<ul><li>Navegue em: <code>Configuração do Usuário</code> ➔ <code>Diretivas</code> ➔ <code>Modelos Administrativos</code> ➔ <code>Trabalho de Mesa (Desktop)</code> ➔ <code>Trabalho de Mesa (Desktop)</code>.</li><li>Dê duplo clique em <strong><code>Papel de Parede do Trabalho de Mesa</code></strong> ➔ Selecione <strong><code>Habilitado</code></strong>.</li><li>No campo <em>Nome do papel de parede</em>, digite obrigatoriamente o caminho UNC de rede:</li></ul>
+<p>  <strong><code>\\esperancadigital.local\Dados\Publico\wallpaper.jpg</code></strong></p>
+<ul><li>No campo <em>Estilo do papel de parede</em>, selecione <strong><code>Preencher</code></strong> (Fill) ➔ <code>Aplicar</code> ➔ <code>OK</code>.</li></ul>
+<br/>
+<h4>✍️ Item C: Bloqueio de Dispositivos Removíveis (Pendrives USB)</h4>
+<ul><li>Navegue em: <code>Configuração do Computador</code> ➔ <code>Diretivas</code> ➔ <code>Modelos Administrativos</code> ➔ <code>Sistema</code> ➔ <code>Acesso a Armazenamento Removível</code>.</li><li>Dê duplo clique em <strong><code>Discos Removíveis: Negar acesso de gravação</code></strong> ➔ Selecione <strong><code>Habilitado</code></strong> ➔ <code>OK</code>.</li><li>Dê duplo clique em <strong><code>Discos Removíveis: Negar acesso de leitura</code></strong> ➔ Selecione <strong><code>Habilitado</code></strong> ➔ <code>OK</code>.</li></ul>
+<br/>
+<hr/>
+<br/>
+<h3>1.4. Proteção contra "Fogo Amigo" e Vinculação às OUs</h3>
+<br/>
+<div class="callout callout-warning"><div class="callout-title">⚠️ ATENÇÃO / AVISO</div><div class="callout-body"><strong>🚨 Incidente Real 06: Fogo Amigo (Bloqueio de Ferramentas Administrativas para a TI)</strong><br/>Se a GPO que restringe o Painel de Controle for aplicada globalmente sem filtros, os próprios administradores de TI (<code>Domain Admins</code>) perderão acesso às ferramentas de suporte nas estações.</div></div>
+<br/>
+<h4>🛡️ Como Isolar a Equipe de TI da GPO Restritiva:</h4>
+<ol start="1"><li>No console <code>gpmc.msc</code>, clique com o botão esquerdo sobre <strong><code>GPO_Seguranca_e_Padronizacao</code></strong> no painel esquerdo.</li><li>No painel direito, clique na aba <strong><code>Delegação</code></strong> (Delegation) ➔ clique no botão <strong><code>Avançadas...</code></strong> (no canto inferior direito).</li><li>Clique em <strong><code>Adicionar...</code></strong> ➔ digite <strong><code>Domain Admins</code></strong> ➔ <code>OK</code>.</li><li>Com <code>Domain Admins</code> selecionado na lista, procure na coluna de permissões a linha <strong><code>Aplicar diretiva de grupo</code></strong> (Apply group policy) e marque a caixinha na coluna <strong><code>Negar</code></strong> (Deny).</li><li>Clique em <strong><code>Aplicar</code></strong> ➔ confirme o aviso do Windows clicando em <strong><code>Sim</code></strong> ➔ <code>OK</code>.</li></ol>
+<br/>
+<h4>🔗 Como Vincular a GPO às OUs de Destino:</h4>
+<ol start="1"><li>Para aplicar as restrições aos usuários:</li></ol>
+<ul><li>Clique com o botão direito sobre <strong><code>OU_Alunos</code></strong> (e <code>OU_Secretaria</code>, <code>OU_Recepcao</code>) ➔ <strong><code>Vincular um GPO existente...</code></strong> ➔ Selecione <code>GPO_Seguranca_e_Padronizacao</code> ➔ <code>OK</code>.</li></ul>
+<ol start="2"><li>Para aplicar o bloqueio de USB às máquinas:</li></ol>
+<ul><li>Clique com o botão direito sobre <strong><code>OU_Estacoes</code></strong> (onde residem os computadores) ➔ <strong><code>Vincular um GPO existente...</code></strong> ➔ Selecione <code>GPO_Seguranca_e_Padronizacao</code> ➔ <code>OK</code>.</li></ul>
+<br/>
+<hr/>
+<br/>
+<h2>📁 ETAPA 2: Servidor de Arquivos, Permissões NTFS e ABE Blindado</h2>
+<br/>
+<h3>2.1. Estrutura de Pastas e Compartilhamento SMB</h3>
+<br/>
+<ol start="1"><li>No servidor <code>SRV-DC01</code>, crie a pasta raiz <strong><code>C:\Dados</code></strong> e dentro dela as 8 subpastas:</li></ol>
+<p>   <code>Diretoria</code>, <code>Coordenacao</code>, <code>Secretaria</code>, <code>Biblioteca</code>, <code>Recepcao</code>, <code>Professores</code>, <code>Alunos</code>, <code>Publico</code>.</p>
+<ol start="2"><li>Clique com o botão direito em <code>C:\Dados</code> ➔ <strong><code>Propriedades</code></strong> ➔ aba <strong><code>Compartilhamento</code></strong> ➔ <strong><code>Compartilhamento Avançado...</code></strong>.</li><li>Marque <strong><code>Compartilhar esta pasta</code></strong> (Nome: <code>Dados</code>) ➔ clique no botão <strong><code>Permissões</code></strong>.</li><li>Conceda <strong><code>Controle Total</code></strong> para o grupo <strong><code>Todos</code> (Everyone)</strong> ➔ <code>Aplicar</code> ➔ <code>OK</code> ➔ <code>OK</code>.</li><li>Abra o <strong>PowerShell (Admin)</strong> e ative o <strong>Access-Based Enumeration (ABE)</strong>:</li></ol>
+<p>   <code></code>`powershell</p>
+<p>   Set-SmbShare -Name "Dados" -FolderEnumerationMode AccessBased -Confirm:$false</p>
+<p>   <code></code>`</p>
+<br/>
+<hr/>
+<br/>
+<h3>2.2. Blindagem contra o "Drive Vazio" no ABE e Permissões NTFS</h3>
+<br/>
+<div class="callout callout-caution"><div class="callout-title">🚨 ALERTA CRÍTICO / INCIDENTE REAL</div><div class="callout-body"><strong>🚨 Incidente Real 03: O Drive Vazio no ABE (Usuário não enxerga nenhuma pasta)</strong><br/><em> <strong>Sintoma:</strong> Ao habilitar o ABE, quando o usuário acessa <code>\\esperancadigital.local\Dados</code>, a pasta aparece totalmente vazia, mesmo que ele pertença ao grupo da Secretaria ou Diretoria.<br/></em> <strong>Causa:</strong> O usuário não possui permissão para ler o diretório raiz <code>C:\Dados</code>, o que impede o ABE de avaliar as permissões das subpastas filhas.<br/>* <strong>Solução:</strong> Na pasta raiz <code>C:\Dados</code>, conceda a permissão <strong>"Listar conteúdo da pasta"</strong> (List folder / read data) para <code>Domain Users</code>, aplicando obrigatoriamente em <strong>"Apenas a esta pasta"</strong> (This folder only).</div></div>
+<br/>
+<h4>📍 Passo a Passo para Configurar a Raiz <code>C:\Dados</code>:</h4>
+<ol start="1"><li>Clique com o botão direito em <code>C:\Dados</code> ➔ <strong><code>Propriedades</code></strong> ➔ aba <strong><code>Segurança</code></strong> ➔ <strong><code>Avançadas</code></strong>.</li><li>Clique em <strong><code>Adicionar</code></strong> ➔ <strong><code>Selecionar um principal</code></strong> ➔ Digite: <strong><code>Domain Users</code></strong> ➔ <code>OK</code>.</li><li>No campo <em>Aplica-se a</em>, selecione: <strong><code>Apenas esta pasta</code></strong> (This folder only).</li><li>Marque as permissões básicas: <strong><code>Ler e Executar</code></strong>, <strong><code>Listar conteúdo da pasta</code></strong> e <strong><code>Leitura</code></strong> ➔ clique em <code>OK</code> ➔ <code>Aplicar</code> ➔ <code>OK</code>.</li></ol>
+<br/>
+<hr/>
+<br/>
+<h3>2.3. Permissões NTFS Cirúrgicas nas Subpastas Departamentais</h3>
+<br/>
+<p>Para cada subpasta departamental (ex: <code>C:\Dados\Secretaria</code>):</p>
+<ol start="1"><li>Botão direito na subpasta ➔ <strong><code>Propriedades</code></strong> ➔ aba <strong><code>Segurança</code></strong> ➔ <strong><code>Avançadas</code></strong>.</li><li>Clique em <strong><code>Desabilitar herança</code></strong> ➔ escolha <strong><code>Converter permissões herdadas em permissões explícitas neste objeto</code></strong>.</li><li>Selecione o grupo genérico <strong><code>Usuários (SRV-DC01\Users)</code></strong> ou <strong><code>Domain Users</code></strong> e clique em <strong><code>Remover</code></strong>.</li><li>Clique em <strong><code>Adicionar</code></strong> ➔ <strong><code>Selecionar um principal</code></strong> ➔ digite o grupo do setor: <strong><code>Secretaria</code></strong> (ou <code>GRP_Secretaria</code>) ➔ <code>OK</code>.</li><li>Marque a permissão <strong><code>Modificar</code></strong> ➔ clique em <code>OK</code>.</li><li>Garanta que <strong><code>Domain Admins</code></strong>, <strong><code>Administrators</code></strong> e <strong><code>SYSTEM</code></strong> estejam mantidos com <strong><code>Controle Total</code></strong>.</li><li>Clique em <code>Aplicar</code> ➔ <code>OK</code> ➔ <code>OK</code>.</li></ol>
+<br/>
+<h4>📌 Permissão Especial na Pasta <code>C:\Dados\Publico</code>:</h4>
+<ul><li>Na pasta <code>Publico</code>, mantenha a herança ou adicione os grupos <strong><code>Domain Users</code></strong> e <strong><code>Domain Computers</code></strong> com a permissão <strong><code>Ler e Executar</code></strong> (necessário para que tanto o usuário quanto o computador consigam carregar o arquivo <code>wallpaper.jpg</code> durante o boot/logon).</li></ul>
+<br/>
+<hr/>
+<br/>
+<h3>2.4. Execução Automatizada via Script PowerShell (<code>Configura_Grupo3_Servicos.ps1</code>)</h3>
+<br/>
+<p>Para executar toda a criação de pastas, permissões NTFS, ABE blindado e mitigação de impressoras de forma automática:</p>
+<pre><code class="language-powershell">
+# Executar no Windows PowerShell (Admin) do Servidor SRV-DC01
+Set-ExecutionPolicy Unrestricted -Scope Process -Force
+C:\Users\adm_b\OneDrive\Documentos\Cetam_Atividade\Configura_Grupo3_Servicos.ps1
+</code></pre>
+<br/>
+<hr/>
+<br/>
+<h2>🖨️ ETAPA 3: Servidor de Impressão e Mitigação PrintNightmare</h2>
+<br/>
+<h3>3.1. Instalação e Criação da Impressora de Rede Centralizada</h3>
+<br/>
+<ol start="1"><li>No <code>Server Manager</code>, vá em <code>Gerenciar</code> ➔ <code>Adicionar Funções e Recursos</code> ➔ Instale <strong><code>Serviços de Impressão e Documentos</code></strong> (<code>Print-Server</code>).</li><li>Abra o console <strong><code>printmanagement.msc</code></strong> (<code>Gerenciamento de Impressão</code>).</li><li>Expanda <code>Servidores de Impressão</code> ➔ <code>SRV-DC01 (Local)</code> ➔ clique com o botão direito em <strong><code>Impressoras</code></strong> ➔ <strong><code>Adicionar Impressora...</code></strong>.</li><li>Selecione: <strong><code>Adicionar impressora TCP/IP ou Web Services por IP ou nome</code></strong> ➔ <code>Avançar</code>.</li><li>Tipo: <code>Dispositivo TCP/IP</code> ➔ Endereço IP: <strong><code>192.168.10.20</code></strong> (Nome da Impressora: <strong><code>IMP_Geral</code></strong>).</li><li>Driver: Para ambiente de simulação/laboratório, selecione o driver padrão <strong><code>Generic / Text Only</code></strong> (ou <code>Microsoft Software Printer Driver</code>).</li><li>Compartilhamento: Marque <strong><code>Compartilhar esta impressora</code></strong> (Nome de Compartilhamento: <code>IMP_Geral</code>) e marque obrigatoriamente <strong><code>Listar no Active Directory</code></strong> ➔ <code>Concluir</code>.</li></ol>
+<br/>
+<hr/>
+<br/>
+<h3>3.2. Mitigação Cirúrgica do Erro RPC 0x8007011b (PrintNightmare)</h3>
+<br/>
+<div class="callout callout-caution"><div class="callout-title">🚨 ALERTA CRÍTICO / INCIDENTE REAL</div><div class="callout-body"><strong>🚨 Incidente Real 05: Erro RPC 0x8007011b no Cliente ao Conectar na Impressora</strong><br/><em> <strong>Sintoma:</strong> Ao tentar conectar a impressora compartilhada do servidor na estação cliente, o Windows retorna o erro <code>0x8007011b</code>.<br/></em> <strong>Causa:</strong> Atualizações de segurança recentes da Microsoft (PrintNightmare) exigem criptografia RPC estrita que bloqueia conexões de spoolers compartilhados.</div></div>
+<br/>
+<h4>💉 Correção no Registro do Servidor Windows:</h4>
+<p>Abra o PowerShell (Admin) e execute o comando:</p>
+<pre><code class="language-powershell">
+New-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Print" -Name "RpcAuthnLevelPrivacyEnabled" -Value 0 -PropertyType DWORD -Force
+Restart-Service -Name Spooler -Force
+</code></pre>
+<br/>
+<h4>✍️ Desativação de "Point and Print Restrictions" via GPO:</h4>
+<ol start="1"><li>No console <code>gpmc.msc</code>, edite a <code>GPO_Seguranca_e_Padronizacao</code>.</li><li>Navegue em: <code>Configuração do Computador</code> ➔ <code>Diretivas</code> ➔ <code>Modelos Administrativos</code> ➔ <code>Impressoras</code>.</li><li>Localize: <strong><code>Restrições de Apontar e Imprimir</code></strong> (Point and Print Restrictions) ➔ Selecione <strong><code>Desabilitado</code></strong> ➔ <code>Aplicar</code> ➔ <code>OK</code>.</li></ol>
+<br/>
+<h4>🔗 Implantação Moderna via Group Policy Preferences (GPP):</h4>
+<p>No editor da GPO, navegue até: <code>Configuração do Usuário</code> ➔ <code>Preferências</code> ➔ <code>Configurações do Painel de Controle</code> ➔ <code>Impressoras</code> ➔ Botão direito ➔ <code>Novo</code> ➔ <code>Impressora de Rede</code> ➔ Ação: <code>Substituir</code> (Replace) ➔ Caminho: <code>\\SRV-DC01\IMP_Geral</code>.</p>
+<br/>
+<hr/>
+<br/>
+<h2>🛡️ ETAPA 4: Windows Defender Firewall e Conectividade DNS</h2>
+<br/>
+<h3>4.1. Configuração do Firewall com Segurança Avançada</h3>
+<br/>
+<ol start="1"><li>Pressione <strong><code>Win + R</code></strong>, digite <strong><code>wf.msc</code></strong> e pressione Enter.</li><li>Certifique-se de que os perfis de <strong>Domínio</strong>, <strong>Privado</strong> e <strong>Público</strong> estejam <strong>Ativados</strong>.</li><li>No PowerShell (Admin), execute o comando de liberação segura:</li></ol>
+<p>   <code></code>`powershell</p>
+<p>   # Libera tráfego SMB e RPC para arquivos e spooler de impressão</p>
+<p>   Enable-NetFirewallRule -DisplayGroup "File and Printer Sharing"</p>
+<p>   # Libera resposta a diagnósticos de Ping (ICMPv4)</p>
+<p>   Enable-NetFirewallRule -Name "FPS-ICMP4-ERQ-In"</p>
+<p>   <code></code>`</p>
+<br/>
+<hr/>
+<br/>
+<h3>4.2. Validação da Zona de Pesquisa Inversa DNS (Incidente Real 04)</h3>
+<br/>
+<div class="callout callout-note"><div class="callout-title">📌 NOTA</div><div class="callout-body"><strong>🚨 Incidente Real 04: Falha na Autenticação Kerberos ao Acessar por Nome (<code>\\SRV-DC01</code>)</strong><br/><em> <strong>Sintoma:</strong> O acesso ao compartilhamento funciona por IP (<code>\\192.168.10.2\Dados</code>), mas falha ou pede senha repetidamente ao usar o nome NetBIOS/FQDN (<code>\\SRV-DC01\Dados</code>).<br/></em> <strong>Causa:</strong> O protocolo de autenticação Kerberos exige que o servidor possua resolução reversa (PTR) cadastrada no DNS.<br/>* <strong>Solução:</strong> No console <strong><code>dnsmgmt.msc</code></strong>, crie a <strong>Zona de Pesquisa Inversa</strong> para a subrede <code>192.168.10.x</code> (<code>10.168.192.in-addr.arpa</code>) e certifique-se de que o registro PTR para <code>192.168.10.2</code> aponte para <code>SRV-DC01.esperancadigital.local</code>.</div></div>
+<br/>
+<hr/>
+<br/>
+<h2>📊 ETAPA 5: Matriz de Testes Finais (Passagem de Bastão para o Grupo 4)</h2>
+<br/>
+<p>Execute esta bateria de testes para certificar que todos os requisitos do Grupo 3 estão 100% validados antes da auditoria do <strong>Grupo 4</strong>:</p>
+<br/>
+<table><thead><tr>
+<th>#</th>
+<th>Item de Teste</th>
+<th>Procedimento / Comando no Cliente</th>
+<th>Usuário / Credencial</th>
+<th>Resultado Esperado</th>
+<th>Status</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>01</strong></td>
+<td><strong>Resolução DNS</strong></td>
+<td>Prompt: <code>nslookup esperancadigital.local</code></td>
+<td>Qualquer usuário</td>
+<td>Retorna o IP do DC: <code>192.168.10.2</code></td>
+<td>[ ] Ok</td>
+</tr>
+<tr>
+<td><strong>02</strong></td>
+<td><strong>DNS Reverso</strong></td>
+<td>Prompt: <code>nslookup 192.168.10.2</code></td>
+<td>Qualquer usuário</td>
+<td>Retorna o nome: <code>SRV-DC01.esperancadigital.local</code></td>
+<td>[ ] Ok</td>
+</tr>
+<tr>
+<td><strong>03</strong></td>
+<td><strong>GPO Senha</strong></td>
+<td>Ctrl+Alt+Del ➔ Alterar senha para <code>123</code></td>
+<td><code>joao.silva</code> / <code>@esperancadigital-2026</code></td>
+<td>Recusado por requisitos de complexidade/tamanho</td>
+<td>[ ] Ok</td>
+</tr>
+<tr>
+<td><strong>04</strong></td>
+<td><strong>GPO Painel</strong></td>
+<td>Pressionar <code>Win + R</code> ➔ digite <code>control</code></td>
+<td><code>joao.silva</code> / <code>@esperancadigital-2026</code></td>
+<td>Mensagem de restrição administrativa do sistema</td>
+<td>[ ] Ok</td>
+</tr>
+<tr>
+<td><strong>05</strong></td>
+<td><strong>Fogo Amigo (TI)</strong></td>
+<td><code>Win + R</code> ➔ digite <code>control</code></td>
+<td><code>Administrator</code> / <code>Manaus@</code></td>
+<td>Painel de Controle abre normalmente sem bloqueios</td>
+<td>[ ] Ok</td>
+</tr>
+<tr>
+<td><strong>06</strong></td>
+<td><strong>GPO Wallpaper</strong></td>
+<td>Logon na estação de trabalho</td>
+<td><code>joao.silva</code> / <code>@esperancadigital-2026</code></td>
+<td>Exibe imagem institucional sem tela preta</td>
+<td>[ ] Ok</td>
+</tr>
+<tr>
+<td><strong>07</strong></td>
+<td><strong>GPO USB</strong></td>
+<td>Conectar Pendrive USB e tentar abrir</td>
+<td><code>joao.silva</code> / <code>@esperancadigital-2026</code></td>
+<td>Janela de diálogo informando "Acesso Negado"</td>
+<td>[ ] Ok</td>
+</tr>
+<tr>
+<td><strong>08</strong></td>
+<td><strong>Filtro ABE</strong></td>
+<td>Acessar rede: <code>\\esperancadigital.local\Dados</code></td>
+<td><code>sec.usuario</code> / <code>@esperancadigital-2026</code></td>
+<td>Exibe apenas as pastas <code>Secretaria</code> e <code>Publico</code></td>
+<td>[ ] Ok</td>
+</tr>
+<tr>
+<td><strong>09</strong></td>
+<td><strong>NTFS Permitido</strong></td>
+<td>Criar arquivo em <code>\\SRV-DC01\Dados\Secretaria</code></td>
+<td><code>sec.usuario</code> / <code>@esperancadigital-2026</code></td>
+<td>Permissão concedida para criar e editar arquivos</td>
+<td>[ ] Ok</td>
+</tr>
+<tr>
+<td><strong>10</strong></td>
+<td><strong>NTFS Bloqueado</strong></td>
+<td>Acessar caminho: <code>\\SRV-DC01\Dados\Diretoria</code></td>
+<td><code>sec.usuario</code> / <code>@esperancadigital-2026</code></td>
+<td>Bloqueio imediato com aviso "Acesso Negado"</td>
+<td>[ ] Ok</td>
+</tr>
+<tr>
+<td><strong>11</strong></td>
+<td><strong>Impressora GPO</strong></td>
+<td>Disparar impressão de teste em <code>IMP_Geral</code></td>
+<td><code>sec.usuario</code> / <code>@esperancadigital-2026</code></td>
+<td>Trabalho enviado com sucesso sem erro <code>0x8007011b</code></td>
+<td>[ ] Ok</td>
+</tr>
+<tr>
+<td><strong>12</strong></td>
+<td><strong>Firewall Ping</strong></td>
+<td>Prompt: <code>ping 192.168.10.2</code></td>
+<td>Qualquer estação da LAN</td>
+<td>0% de perda de pacotes com latência <1ms</td>
+<td>[ ] Ok</td>
+</tr>
+</tbody></table>
+<br/>
+<hr/>
+<br/>
+<h2>🏁 Conclusão e Governança</h2>
+<br/>
+<p>Com a aplicação das diretivas e mitigações deste manual, a infraestrutura do <strong>Instituto Esperança Digital</strong> atinge conformidade total com as melhores práticas de governança e segurança do Microsoft Windows Server 2022. O ambiente está estável, auditável e pronto para a homologação técnica do <strong>Grupo 4</strong>.</p>
+<br/>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" fill="currentColor">
+  <!-- Silhueta Estilizada de Arara-Vermelha Amazônica em voo -->
+  <g opacity="0.85">
+    <!-- Cabeça e Bico Forte -->
+    <path d="M 120 180 C 130 150, 160 140, 180 150 C 190 140, 205 150, 200 170 C 190 190, 160 200, 135 195 Z"/>
+    <path d="M 120 180 Q 95 190, 110 210 Q 125 200, 130 190 Z"/>
+    <!-- Asa Superior Longa -->
+    <path d="M 170 160 C 230 100, 320 60, 420 50 C 390 90, 360 140, 330 190 C 360 180, 400 170, 440 170 C 390 210, 340 240, 290 260 Z"/>
+    <!-- Corpo e Asa Inferior -->
+    <path d="M 170 180 C 190 230, 210 270, 240 310 C 280 290, 330 260, 370 230 C 330 270, 290 310, 240 340 Z"/>
+    <!-- Cauda Longa e Elegante -->
+    <path d="M 230 320 C 260 370, 300 420, 340 470 C 320 450, 290 410, 260 370 C 240 350, 230 330, 220 320 Z"/>
+  </g>
+</svg>

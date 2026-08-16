@@ -1,0 +1,345 @@
+/* ========================================================
+   ESTRUTURA GERAL E LAYOUT DA APRESENTAÇÃO
+   ======================================================== */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: var(--bg-dark-base);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Canvas de Partículas ao Fundo */
+#particles-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Container Principal dos Slides */
+.presentation-container {
+    position: relative;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* ========================================================
+   BARRA SUPERIOR (HEADER)
+   ======================================================== */
+.top-header {
+    height: 68px;
+    padding: 0 clamp(16px, 3vw, 40px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(6, 14, 26, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-glass);
+    z-index: 10;
+}
+
+.brand-section {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.cetam-badge-logo {
+    background: linear-gradient(135deg, var(--cetam-green) 0%, #005c2a 100%);
+    color: #fff;
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    padding: 6px 14px;
+    border-radius: var(--radius-sm);
+    box-shadow: 0 0 16px var(--cetam-green-glow);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.brand-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-title {
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-pure);
+}
+
+.brand-subtitle {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.header-center-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--cetam-gold-bg);
+    border: 1px solid var(--border-gold);
+    color: var(--cetam-gold);
+    font-size: 11.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 5px 14px;
+    border-radius: 20px;
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-nav-top {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-glass);
+    color: var(--text-main);
+    padding: 7px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-nav-top:hover {
+    background: rgba(0, 179, 84, 0.2);
+    border-color: var(--cetam-green-light);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+/* ========================================================
+   ÁREA DE CONTEÚDO DO SLIDE
+   ======================================================== */
+.slides-wrapper {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    padding: clamp(10px, 2vh, 24px) clamp(16px, 3vw, 40px);
+}
+
+.slide {
+    position: absolute;
+    inset: clamp(10px, 2vh, 24px) clamp(16px, 3vw, 40px);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(16px) scale(0.98);
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    z-index: 5;
+}
+
+/* Cabeçalho Interno do Slide */
+.slide-intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-glass);
+    position: relative;
+    z-index: 2;
+}
+
+.slide-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #4ade80;
+    background: rgba(0, 135, 62, 0.2);
+    padding: 3px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 179, 84, 0.35);
+    margin-bottom: 4px;
+}
+
+.slide-title {
+    font-family: var(--font-heading);
+    font-size: clamp(20px, 2.4vh, 26px);
+    font-weight: 800;
+    color: var(--text-pure);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.slide-subtitle {
+    font-size: clamp(12px, 1.4vh, 14px);
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+.presenter-pill {
+    background: rgba(15, 30, 54, 0.9);
+    border: 1px solid var(--border-glass);
+    padding: 6px 16px;
+    border-radius: var(--radius-md);
+    text-align: right;
+    box-shadow: var(--shadow-card);
+}
+
+.presenter-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: var(--cetam-gold);
+}
+
+.presenter-name {
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 800;
+    color: #fff;
+}
+
+/* ========================================================
+   BARRA INFERIOR (FOOTER)
+   ======================================================== */
+.bottom-footer {
+    height: 52px;
+    padding: 0 clamp(16px, 3vw, 40px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(6, 14, 26, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid var(--border-glass);
+    z-index: 10;
+}
+
+.slide-count-badge {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+}
+
+.slide-count-badge strong {
+    color: var(--cetam-gold);
+}
+
+.progress-track {
+    flex: 1;
+    max-width: 380px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 0 20px;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 16.66%;
+    background: linear-gradient(90deg, var(--cetam-green) 0%, var(--cetam-green-light) 60%, var(--cetam-gold) 100%);
+    border-radius: 4px;
+    transition: width 0.35s ease;
+    box-shadow: 0 0 10px var(--cetam-green-glow);
+}
+
+.keyboard-hints {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 12px;
+    color: var(--text-dim);
+}
+
+.key-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: #fff;
+}
+
+/* ========================================================
+   REGRAS DE IMPRESSÃO / EXPORTAÇÃO PDF (@media print)
+   ======================================================== */
+@media print {
+    @page {
+        size: 16in 9in landscape;
+        margin: 0;
+    }
+
+    html, body {
+        width: 100%;
+        height: auto;
+        overflow: visible;
+        background: #060E1A !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    #particles-canvas, .top-header .header-controls, .bottom-footer {
+        display: none !important;
+    }
+
+    .presentation-container {
+        height: auto;
+        display: block;
+    }
+
+    .slides-wrapper {
+        padding: 0;
+        height: auto;
+    }
+
+    .slide {
+        position: relative !important;
+        inset: auto !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        display: flex !important;
+        page-break-after: always;
+        break-after: page;
+        padding: 30px 40px !important;
+        box-sizing: border-box;
+    }
+}

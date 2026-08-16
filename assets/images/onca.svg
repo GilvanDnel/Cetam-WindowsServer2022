@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" fill="currentColor">
+  <!-- Silhueta Estilizada de Onça-Pintada Amazônica -->
+  <g opacity="0.85">
+    <path d="M 80 320 C 100 280, 140 260, 180 270 C 220 280, 270 260, 310 240 C 350 220, 390 190, 420 150 C 425 145, 435 150, 432 158 C 420 185, 380 230, 350 260 C 320 290, 280 320, 240 330 C 200 340, 160 345, 120 360 C 100 370, 75 350, 80 320 Z"/>
+    <path d="M 370 180 C 390 160, 430 140, 460 160 C 475 170, 480 190, 465 205 C 445 220, 415 220, 395 210 Z"/>
+    <circle cx="440" cy="175" r="4"/>
+    <path d="M 450 150 C 455 135, 470 135, 472 150 Z"/>
+    <!-- Patas e Corpo -->
+    <path d="M 190 280 C 180 330, 170 380, 165 430 C 160 440, 185 445, 190 435 C 200 390, 210 340, 220 290 Z"/>
+    <path d="M 320 260 C 330 310, 345 360, 360 410 C 365 425, 385 420, 380 405 C 365 360, 350 310, 340 260 Z"/>
+    <!-- Manchas características da Onça (Rosetas) -->
+    <ellipse cx="230" cy="300" rx="12" ry="8" stroke="currentColor" stroke-width="4" fill="none" opacity="0.6"/>
+    <ellipse cx="270" cy="275" rx="14" ry="9" stroke="currentColor" stroke-width="4" fill="none" opacity="0.6"/>
+    <ellipse cx="310" cy="255" rx="10" ry="7" stroke="currentColor" stroke-width="3.5" fill="none" opacity="0.6"/>
+    <ellipse cx="170" cy="310" rx="11" ry="8" stroke="currentColor" stroke-width="3.5" fill="none" opacity="0.6"/>
+  </g>
+</svg>

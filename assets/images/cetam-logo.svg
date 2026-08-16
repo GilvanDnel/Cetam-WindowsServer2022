@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
+  <rect width="200" height="60" rx="12" fill="#00873E"/>
+  <text x="30" y="38" font-family="'Outfit', 'Inter', sans-serif" font-size="28" font-weight="900" fill="#FFFFFF" letter-spacing="2">CETAM</text>
+  <circle cx="165" cy="30" r="14" fill="#FFB81C"/>
+  <path d="M165 20 L169 27 L177 28 L171 34 L173 42 L165 37 L157 42 L159 34 L153 28 L161 27 Z" fill="#060E1A"/>
+</svg>

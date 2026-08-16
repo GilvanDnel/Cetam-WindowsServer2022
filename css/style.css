@@ -1,0 +1,636 @@
+/* ========================================================
+   MASTER STYLESHEET - APRESENTAÇÃO GRUPO 3 CETAM (DATASHOW READY: FONTES GRANDES & 100% ENQUADRADO)
+   ======================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@600;800&family=Outfit:wght@600;700;800;900&display=swap');
+
+:root {
+    /* Paleta Oficial CETAM & Governo do Amazonas */
+    --cetam-green: #00873E;
+    --cetam-green-light: #00D062;
+    --cetam-green-glow: rgba(0, 208, 98, 0.4);
+
+    --cetam-gold: #FFB81C;
+    --cetam-gold-glow: rgba(255, 184, 28, 0.4);
+
+    --cetam-blue: #38BDF8;
+    --cetam-blue-glow: rgba(56, 189, 248, 0.35);
+
+    --cetam-red: #EF4444;
+
+    /* Fundo Escuro de Alto Contraste */
+    --bg-dark-base: #060E1A;
+    --bg-card: rgba(12, 26, 48, 0.92);
+    --bg-card-hover: rgba(16, 35, 65, 0.98);
+
+    --border-glass: rgba(255, 255, 255, 0.16);
+    --border-green: rgba(0, 208, 98, 0.7);
+    --border-gold: rgba(255, 184, 28, 0.7);
+    --border-blue: rgba(56, 189, 248, 0.7);
+
+    /* Tipografia */
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --text-pure: #FFFFFF;
+    --text-main: #F8FAFC;
+    --text-muted: #CBD5E1;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: var(--bg-dark-base);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+}
+
+#particles-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.presentation-container {
+    position: relative;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 6px 14px;
+}
+
+/* ========================================================
+   HEADER ULTRA-COMPACTO (MAXIMIZA O ESPAÇO PARA O CONTEÚDO)
+   ======================================================== */
+.top-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(10, 22, 40, 0.92);
+    border: 1px solid var(--border-glass);
+    border-radius: 8px;
+    padding: 4px 14px;
+    backdrop-filter: blur(10px);
+    height: 42px;
+    flex-shrink: 0;
+}
+
+.brand-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cetam-badge-logo {
+    background: var(--cetam-green);
+    color: #fff;
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    box-shadow: 0 0 12px var(--cetam-green-glow);
+}
+
+.brand-text-title {
+    font-family: var(--font-heading);
+    font-size: 13.5px;
+    font-weight: 800;
+    color: var(--text-pure);
+}
+
+.brand-text-subtitle {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.header-center-tag {
+    font-family: var(--font-heading);
+    font-size: 11.5px;
+    font-weight: 800;
+    color: var(--cetam-gold);
+    background: rgba(255, 184, 28, 0.12);
+    border: 1px solid var(--border-gold);
+    padding: 2px 10px;
+    border-radius: 12px;
+    letter-spacing: 0.8px;
+}
+
+.header-controls {
+    display: flex;
+    gap: 5px;
+}
+
+.btn-ctrl {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--border-glass);
+    color: #fff;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 11.5px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-ctrl:hover {
+    background: var(--cetam-green);
+    border-color: var(--cetam-green-light);
+}
+
+/* ========================================================
+   SLIDES WRAPPER
+   ======================================================== */
+.slides-wrapper {
+    flex: 1;
+    position: relative;
+    margin: 4px 0;
+    min-height: 0;
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: opacity 0.2s ease, visibility 0.2s;
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 5;
+}
+
+/* Cabeçalho do Slide (Com Título Grande) */
+.slide-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10, 22, 40, 0.8);
+    border: 1px solid var(--border-glass);
+    border-radius: 8px;
+    padding: 4px 14px;
+    margin-bottom: 4px;
+    height: 38px;
+    flex-shrink: 0;
+}
+
+.slide-main-title {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 800;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.slide-presenter-badge {
+    background: rgba(255, 184, 28, 0.15);
+    border: 1px solid var(--border-gold);
+    padding: 3px 12px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 800;
+    color: #FFFFFF;
+}
+
+.slide-presenter-badge span {
+    color: var(--cetam-gold);
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+/* ========================================================
+   GRID DE 3 COLUNAS (FONTES GRANDES & VISÍVEIS NO DATASHOW)
+   ======================================================== */
+.drawio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    flex: 1;
+    min-height: 0;
+}
+
+.drawio-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 4px;
+    height: 100%;
+    min-height: 0;
+}
+
+/* Card com Alto Destaque */
+.drawio-card {
+    background: var(--bg-card);
+    border: 1.5px solid var(--border-glass);
+    border-radius: 10px;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    min-height: 0;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+    transition: transform 0.15s, border-color 0.15s;
+}
+
+.drawio-card:hover {
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+/* Passo 1: Precisa ser feito */
+.drawio-card.step-1 {
+    border-left: 5px solid var(--cetam-blue);
+}
+.drawio-card.step-1 .step-title {
+    color: var(--cetam-blue);
+}
+
+/* Passo 2: Como fazer */
+.drawio-card.step-2 {
+    border-left: 5px solid var(--cetam-green-light);
+}
+.drawio-card.step-2 .step-title {
+    color: var(--cetam-green-light);
+}
+
+/* Passo 3: Como testar */
+.drawio-card.step-3 {
+    border-left: 5px solid var(--cetam-gold);
+    background: rgba(14, 30, 56, 0.96);
+}
+.drawio-card.step-3 .step-title {
+    color: var(--cetam-gold);
+}
+
+/* Títulos dos Passos em Destaque */
+.step-title {
+    font-family: var(--font-heading);
+    font-size: 16.5px;
+    font-weight: 900;
+    margin-bottom: 3px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+/* Texto Principal Grande e Nítido */
+.step-desc {
+    font-size: 15.5px;
+    line-height: 1.34;
+    color: #FFFFFF;
+    font-weight: 500;
+}
+
+.step-desc strong {
+    color: #FFFFFF;
+    font-weight: 800;
+}
+
+.step-desc code {
+    background: rgba(0, 0, 0, 0.45);
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 14.5px;
+    color: #38BDF8;
+}
+
+/* Linha de Código de Teste */
+.step-code-clean {
+    margin-top: 4px;
+    background: #060E1A;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    padding: 4px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+}
+
+.code-txt {
+    font-family: var(--font-mono);
+    font-size: 15px;
+    font-weight: 800;
+    color: #38BDF8;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.btn-copy-code {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.btn-copy-code:hover {
+    background: var(--cetam-green);
+}
+
+/* Seta de Conexão */
+.drawio-arrow {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
+    font-weight: 900;
+    margin: -3px 0;
+    flex-shrink: 0;
+}
+
+/* ========================================================
+   SLIDE 1: CAPA (LETRAS GRANDES & CENTRALIZADO)
+   ======================================================== */
+.cover-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(10px, 3vh, 24px);
+    height: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.cover-header-block {
+    text-align: center;
+    max-width: 1000px;
+}
+
+.cover-hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(26px, 4.2vh, 36px);
+    font-weight: 900;
+    color: #FFFFFF;
+    line-height: 1.2;
+    margin-bottom: 6px;
+}
+
+.cover-hero-title span {
+    color: var(--cetam-green-light);
+}
+
+.cover-hero-sub {
+    font-size: clamp(14px, 2vh, 17px);
+    color: var(--text-muted);
+    line-height: 1.35;
+}
+
+.cover-members-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    width: 100%;
+}
+
+.cover-member-card {
+    background: var(--bg-card);
+    border: 1.5px solid var(--border-glass);
+    border-radius: 10px;
+    padding: 14px 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.cover-member-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--cetam-green-light);
+    background: var(--bg-card-hover);
+    box-shadow: 0 6px 20px var(--cetam-green-glow);
+}
+
+.cover-member-name {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 900;
+    color: #FFFFFF;
+    margin-bottom: 3px;
+}
+
+.cover-member-role {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--cetam-gold);
+    margin-bottom: 4px;
+}
+
+.cover-member-summary {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.3;
+}
+
+/* ========================================================
+   SLIDE 6: ENCERRAMENTO CENTRALIZADO & LIMPO (FUNDO 100% LIVRE)
+   ======================================================== */
+.closing-centered-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.closing-hero-centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: auto 0;
+}
+
+.closing-icon-glow {
+    font-size: clamp(36px, 5vh, 52px);
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 25px rgba(0, 208, 98, 0.7));
+}
+
+.closing-main-title {
+    font-family: var(--font-heading);
+    font-size: clamp(36px, 6.5vh, 56px);
+    font-weight: 900;
+    color: #FFFFFF;
+    letter-spacing: -1px;
+    line-height: 1.15;
+    margin-bottom: 12px;
+    text-shadow: 0 0 45px rgba(0, 208, 98, 0.45);
+}
+
+.closing-main-title span {
+    color: var(--cetam-green-light);
+    text-shadow: 0 0 40px var(--cetam-green-glow);
+}
+
+.closing-sub-title {
+    font-size: clamp(16px, 2.4vh, 22px);
+    color: var(--text-muted);
+    max-width: 850px;
+    line-height: 1.4;
+    margin-bottom: 16px;
+}
+
+.closing-institution-tag {
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--cetam-gold);
+    background: rgba(255, 184, 28, 0.1);
+    border: 1px solid rgba(255, 184, 28, 0.4);
+    padding: 6px 20px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+}
+
+.closing-references-clean {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 13px;
+    color: #94A3B8;
+    text-align: center;
+    padding-top: 6px;
+}
+
+.ref-clean-label {
+    font-weight: 800;
+    color: #F8FAFC;
+    margin-right: 4px;
+}
+
+.ref-clean-item {
+    color: #CBD5E1;
+}
+
+.ref-clean-sep {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* ========================================================
+   FOOTER COMPACTO
+   ======================================================== */
+.bottom-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(10, 22, 40, 0.92);
+    border: 1px solid var(--border-glass);
+    border-radius: 8px;
+    padding: 3px 14px;
+    height: 34px;
+    flex-shrink: 0;
+}
+
+.footer-slide-num {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 800;
+    color: #FFFFFF;
+}
+
+.footer-slide-num span {
+    color: var(--cetam-gold);
+}
+
+.footer-nav-help {
+    font-size: 11.5px;
+    color: var(--text-muted);
+}
+
+.key-pill {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    color: #fff;
+    font-size: 10px;
+}
+
+/* ========================================================
+   MARCA D'ÁGUA SUAVE
+   ======================================================== */
+.watermark-animal {
+    position: absolute;
+    right: 2%;
+    bottom: 4%;
+    width: 240px;
+    height: 240px;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.04;
+    color: var(--cetam-green-light);
+}
+
+/* ========================================================
+   RESPONSIVIDADE (MOBILE & TABLET)
+   ======================================================== */
+@media (max-width: 900px) {
+    html, body {
+        overflow-y: auto;
+    }
+    .presentation-container {
+        height: auto;
+        min-height: 100vh;
+    }
+    .slide {
+        position: relative;
+        inset: auto;
+        display: none;
+    }
+    .slide.active {
+        display: flex;
+    }
+    .drawio-grid {
+        grid-template-columns: 1fr;
+    }
+    .cover-members-grid {
+        grid-template-columns: 1fr;
+    }
+    .closing-grid-datashow {
+        grid-template-columns: 1fr;
+    }
+    .test-grid-large {
+        grid-template-columns: 1fr;
+    }
+}

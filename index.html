@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apresentação Técnica CETAM - Infraestrutura Windows Server 2022</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Canvas de Partículas Dinâmicas CETAM -->
+    <canvas id="particles-canvas"></canvas>
+
+    <div class="presentation-container">
+
+        <!-- ========================================================
+             BARRA SUPERIOR (HEADER INSTITUCIONAL)
+        ======================================================== -->
+        <header class="top-header">
+            <div class="brand-left">
+                <div class="cetam-badge-logo">CETAM</div>
+                <div>
+                    <div class="brand-text-title">Centro de Educação Tecnológica do Amazonas</div>
+                    <div class="brand-text-subtitle">Infraestrutura Windows Server 2022 • Instituto Esperança Digital
+                    </div>
+                </div>
+            </div>
+
+            <div class="header-center-tag">
+                ENTREGA DE SERVIÇOS & SEGURANÇA
+            </div>
+
+            <div class="header-controls">
+                <button class="btn-ctrl" id="btnPrev" title="Slide Anterior (Seta Esquerda)">◀ Anterior</button>
+                <button class="btn-ctrl" id="btnNext" title="Próximo Slide (Seta Direita / Espaço)">Próximo ▶</button>
+                <button class="btn-ctrl" id="btnHome" title="Voltar à Capa (H)">🏠 Início</button>
+                <button class="btn-ctrl" id="btnFullscreen" title="Tela Cheia (F)">⛶ Tela Cheia</button>
+            </div>
+        </header>
+
+        <!-- ========================================================
+             ÁREA PRINCIPAL DOS SLIDES
+        ======================================================== -->
+        <main class="slides-wrapper">
+
+            <!-- ========================================================
+                 SLIDE 1: CAPA
+            ======================================================== -->
+            <section class="slide active" id="slide-1" data-index="1">
+                <div class="cover-container">
+                    <div class="cover-header-block">
+                        <h1 class="cover-hero-title">
+                            Serviços Corporativos e Segurança no <span>Windows Server 2022</span>
+                        </h1>
+                        <p class="cover-hero-sub">
+                            Implementação de Diretivas de Grupo (GPO), Servidor de Arquivos, Fila de Impressão e
+                            Firewall
+                        </p>
+                    </div>
+
+                    <div class="cover-members-grid">
+
+                        <!-- 1. Elizandra -->
+                        <div class="cover-member-card" onclick="goToSlide(6)">
+                            <div class="cover-member-name">Elizandra</div>
+                            <div class="cover-member-role">Abertura & Encerramento</div>
+                            <div class="cover-member-summary">
+                                Introdução do projeto, referências oficiais e coordenação da equipe.
+                            </div>
+                        </div>
+
+                        <!-- 2. Gilvan -->
+                        <div class="cover-member-card" onclick="goToSlide(2)">
+                            <div class="cover-member-name">Gilvan</div>
+                            <div class="cover-member-role">Diretivas de Grupo (GPO)</div>
+                            <div class="cover-member-summary">
+                                Políticas de senhas, bloqueio de pendrives e proteção das contas de TI.
+                            </div>
+                        </div>
+
+                        <!-- 3. Mariane -->
+                        <div class="cover-member-card" onclick="goToSlide(3)">
+                            <div class="cover-member-name">Mariane</div>
+                            <div class="cover-member-role">Servidor de Arquivos</div>
+                            <div class="cover-member-summary">
+                                8 pastas departamentais, permissões NTFS e pop-up de Acesso Negado.
+                            </div>
+                        </div>
+
+                        <!-- 4. Edmar -->
+                        <div class="cover-member-card" onclick="goToSlide(4)">
+                            <div class="cover-member-name">Edmar</div>
+                            <div class="cover-member-role">Servidor de Impressão</div>
+                            <div class="cover-member-summary">
+                                Fila única <code>IMP_Geral</code> no AD e correção de conexão remota.
+                            </div>
+                        </div>
+
+                        <!-- 5. Adler -->
+                        <div class="cover-member-card" onclick="goToSlide(5)">
+                            <div class="cover-member-name">Adler</div>
+                            <div class="cover-member-role">Firewall & Conectividade</div>
+                            <div class="cover-member-summary">
+                                Liberação de portas SMB/Ping e resolução reversa no DNS.
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========================================================
+                 SLIDE 2: GILVAN - GPO
+            ======================================================== -->
+            <section class="slide" id="slide-2" data-index="2">
+                <div class="slide-banner">
+                    <div class="slide-main-title">
+                        <span>🛡️</span> Gestão de Identidade e Políticas de Grupo (GPO)
+                    </div>
+                    <div class="slide-presenter-badge">
+                        <span>Apresentador:</span> Gilvan
+                    </div>
+                </div>
+
+                <div class="drawio-grid">
+
+                    <!-- Coluna 1 -->
+                    <div class="drawio-col">
+                        <div class="drawio-card step-1">
+                            <div class="step-title">👤 1. Precisa ser feito</div>
+                            <div class="step-desc">
+                                Exigir <strong>senhas fortes de 8 dígitos</strong> e bloquear a conta após <strong>5
+                                    tentativas incorretas</strong>.
+                            </div>
+                        </div>
+
+                        <div class="drawio-arrow">↓</div>
+
+                        <div class="drawio-card step-2">
+                            <div class="step-title">⚙️ 2. Como fazer</div>
+                            <div class="step-desc">
+                                <strong><code>gpmc.msc</code></strong> ➔ Domain ➔ <em>Default Domain Policy</em> ➔ Edit
+                                ➔ <em>Computer Configuration ➔ Policies ➔ Windows Settings ➔ Security Settings ➔ Account
+                                    Policies</em> (Password & Account Lockout Policy).
+                            </div>
+                        </div>
+
+                        <div class="drawio-arrow">↓</div>
+
+                        <div class="drawio-card step-3">
+                            <div class="step-title">✉️ 3. Como testar</div>
+                            <div class="step-desc">Auditar a política no Prompt de Comando (CMD):</div>
+                            <div class="step-code-clean">
+                                <span class="code-txt">net accounts</span>
+                                <button class="btn-copy-code" onclick="copyText('net accounts', this)">Copiar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Coluna 2 -->
+                    <div class="drawio-col">
+                        <div class="drawio-card step-1">
+                            <div class="step-title">👤 1. Precisa ser feito</div>
+                            <div class="step-desc">
+                                Bloquear <strong>pendrives USB</strong> e o <strong>Prompt de Comando
+                                    (CMD/PowerShell)</strong> para impedir execução de scripts e vazamento de dados.
+                            </div>
+                        </div>
+
+                        <div class="drawio-arrow">↓</div>
+
+                        <div class="drawio-card step-2">
+                            <div class="step-title">⚙️ 2. Como fazer</div>
+                            <div class="step-desc">
+                                <strong><code>gpmc.msc</code></strong> ➔ <em>GPO_Seguranca_e_Padronizacao</em> ➔
+                                Edit:<br>
+                                • <em>USB:</em>
+                                <code>Computer Config ➔ Admin Templates ➔ System ➔ Removable Storage Access ➔ Deny all access</code>.<br>
+                                • <em>CMD:</em>
+                                <code>User Config ➔ Admin Templates ➔ System ➔ "Prevent access to the command prompt" ➔ Enabled</code>.
+                            </div>
+                        </div>
+
+                        <div class="drawio-arrow">↓</div>
+
+                        <div class="drawio-card step-3">
+                            <div class="step-title">✉️ 3. Como testar</div>
+                            <div class="step-desc">
+                                Conectar pendrive ou abrir CMD como usuário comum: <br>
+                                <strong style="color:#F87171;">🚫 "The command prompt has been disabled by your
+                                    administrator."</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Coluna 3 -->
+                    <div class="drawio-col">
+                        <div class="drawio-card step-1">
+                            <div class="step-title">👤 1. Precisa ser feito</div>
+                            <div class="step-desc">
+                                Fixar <strong>wallpaper padrão</strong> e garantir <strong>acesso livre total para a
+                                    equipe de TI</strong>.
+                            </div>
+                        </div>
+
+                        <div class="drawio-arrow">↓</div>
+
+                        <div class="drawio-card step-2">
+                            <div class="step-title">⚙️ 2. Como fazer</div>
+                            <div class="step-desc">
+                                <strong><code>gpmc.msc</code></strong> ➔ <em>Group Policy Objects</em>:<br>
+                                • <em>Wallpaper:</em> Right-click em <strong>GPO_Seguranca_e_Padronizacao</strong> ➔
+                                <em>Edit ➔ User Config ➔ Policies ➔ Admin Templates ➔ Desktop ➔ Desktop ➔ Desktop
+                                    Wallpaper: \\SRV-DC01\Dados\Publico\wallpaper.jpg</em><br>
+                                • <em>Exceção TI:</em> Clicar em <strong>GPO_Seguranca_e_Padronizacao</strong> ➔ <em>Aba
+                                    Delegation ➔ Advanced ➔ Domain Admins ➔ Desmarcar "Apply group policy"</em>.
+                            </div>
+                        </div>
+
+                        <div class="drawio-arrow">↓</div>
+
+                        <div class="drawio-card step-3">
+                            <div class="step-title">✉️ 3. Como testar</div>
+                            <div class="step-desc">Checar diretivas aplicadas no cliente:</div>
+                            <div class="step-code-clean">
+                                <span class="code-txt">gpresult /r</span>
+                                <button class="btn-copy-code" onclick="copyText('gpresult /r', this)">Copiar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ========================================================
+                 SLIDE 3: MARIANE - ARQUIVOS & NTFS
+            ======================================================== -->
+            <section class="slide" id="slide-3" data-index="3">
+                <div class="slide-banner">
+                    <div class="slide-main-title">
+                        <span>📁</span> Servidor de Arquivos e Permissões Departamentais
+                    </div>
+                    <div class="slide-presenter-badge">
+                        <span>Apresentador:</span> Mariane
+                    </div>
+                </div>
+
+                <div class="drawio-grid">
+
+                    <!-- Coluna 1 -->
+                    <div class="drawio-col">
+                        <div class="drawio-card step-1">
+                            <div class="step-title">👤 1. Precisa ser feito</div>
+                            <div class="step-desc">
+                                Criar as <strong>8 pastas departamentais</strong> em <code>C:\Dados</code> e
+                                compartilhá-las na rede como <code>\\esperancadigital.local\Dados</code>.
+                            </div>
+                        </div>
+
+                        <div class="drawio-arrow">↓</div>
+
+                        <div class="drawio-card step-2">
+                            <div class="step-title">⚙️ 2. Como fazer</div>
+                            <div class="step-desc">
+                                • <em>Pastas:</em> Criar em <code>C:\Dados</code> (Diretoria, Coordenacao, Secretaria,
+                                Biblioteca, Recepcao, Professores, Alunos, Publico).<br>
+                                • <em>Share:</em>
+                                <code>Server Manager ➔ File and Storage Services ➔ Shares ➔ New Share (SMB - Quick) ➔ Path: C:\Dados ➔ Share Name: "Dados"</code>.
+                            </div>
+                        </div>
+
+                        <div class="drawio-arrow">↓</div>
+
+                        <div class="drawio-card step-3">
+                            <div class="step-title">✉️ 3. Como testar</div>
+                            <div class="step-desc">Abrir no Windows Explorer de qualquer máquina:</div>
+                            <div class="step-code-clean">
+                                <span class="code-txt">\\esperancadigital.local\Dados</span>
+                                <button class="btn-copy-code"
+                                    onclick="copyText('\\\\esperancadigital.local\\Dados', this)">Copiar</button>
+                            </div>
+                            <div style="font-size: 14px; color: #00D062; font-weight: 700; margin-top: 4px;">✓ Todas as
+                                8 pastas aparecem visíveis na tela.</div>
+                        </div>
+                    </div>
+
+                    <!-- Coluna 2 -->
+                    <div class="drawio-col">
+                        <div class="drawio-card step-1">
+                            <div class="step-title">👤 1. Precisa ser feito</div>
+                            <div class="step-desc">
+                                Permitir que cada usuário <strong>leia, crie e edite arquivos</strong> apenas na pasta
+                                do seu departamento.
+                            </div>
+                        </div>
+
+                        <div class="drawio-arrow">↓</div>
+
+                        <div class="drawio-card step-2">
+                            <div class="step-title">⚙️ 2. Como fazer</div>
+                            <div class="step-desc">
+                                Right-click na pasta (ex: Secretaria) ➔ <em>Properties ➔ Security ➔ Advanced ➔ Disable
+                                    inheritance ("Convert...") ➔ Remove Users ➔ Add: "GG_Secretaria" ➔ Permission:
+                                    Modify</em>.
+                            </div>
+                        </div>
+
+                        <div class="drawio-arrow">↓</div>
+
+                        <div class="drawio-card step-3">
+                            <div class="step-title">✉️ 3. Como testar</div>
+                            <div class="step-desc">Logado como <code>sec.usuario</code>, abrir seu setor:</div>
+                            <div class="step-code-clean">
+                                <span class="code-txt">\\esperancadigital.local\Dados\Secretaria</span>
+                                <button class="btn-copy-code"
+                                    onclick="copyText('\\\\esperancadigital.local\\Dados\\Secretaria', this)">Copiar</button>
+                            </div>
+                            <div style="font-size: 14px; color: #00D062; font-weight: 700; margin-top: 4px;">✓ Acesso
+                                liberado para ler, criar e salvar arquivos.</div>
+                        </div>
+                    </div>
+
+                    <!-- Coluna 3 -->
+                    <div class="drawio-col">
+                        <div class="drawio-card step-1">
+                            <div class="step-title">👤 1. Precisa ser feito</div>
+                            <div class="step-desc">
+                                Bloquear o acesso a pastas de outros setores exibindo o <strong>pop-up de Acesso
+                                    Negado</strong>.
+                            </div>
+                        </div>
+
+                        <div class="drawio-arrow">↓</div>
+
+                        <div class="drawio-card step-2">
+                            <div class="step-title">⚙️ 2. Como fazer</div>
+                            <div class="step-desc">
+                                <code>Server Manager ➔ File and Storage Services ➔ Shares ➔ Right-click "Dados" ➔ Properties ➔ Settings ➔ Uncheck "Enable access-based enumeration"</code>.
+                            </div>
+                        </div>
+
+                        <div class="drawio-arrow">↓</div>
+
+                        <div class="drawio-card step-3">
+                            <div class="step-title">✉️ 3. Como testar</div>
+                            <div class="step-desc">Logado como <code>sec.usuario</code>, tentar abrir Diretoria:</div>
+                            <div class="step-code-clean">
+                                <span class="code-txt">\\esperancadigital.local\Dados\Diretoria</span>
+                                <button class="btn-copy-code"
+                                    onclick="copyText('\\\\esperancadigital.local\\Dados\\Diretoria', this)">Copiar</button>
+                            </div>
+                            <div style="font-size: 14px; color: #F87171; font-weight: 800; margin-top: 4px;">🚫 Pop-up:
+                                "Network Error: Access is denied".</div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ========================================================
+                 SLIDE 4: EDMAR - IMPRESSÃO
+            ======================================================== -->
+            <section class="slide" id="slide-4" data-index="4">
+                <div class="slide-banner">
+                    <div class="slide-main-title">
+                        <span>🖨️</span> Servidor de Impressão e Fila Geral Centralizada
+                    </div>
+                    <div class="slide-presenter-badge">
+                        <span>Apresentador:</span> Edmar
+                    </div>
+                </div>
+
+                <div class="drawio-grid">
+
+                    <!-- Coluna 1 -->
+                    <div class="drawio-col">
+                        <div class="drawio-card step-1">
+                            <div class="step-title">👤 1. Precisa ser feito</div>
+                            <div class="step-desc">
+                                Habilitar o <strong>serviço central de impressão</strong> no Windows Server 2022.
+                            </div>
+                        </div>
+
+                        <div class="drawio-arrow">↓</div>
+
+                        <div class="drawio-card step-2">
+                            <div class="step-title">⚙️ 2. Como fazer</div>
+                            <div class="step-desc">
+                                <strong><code>Server Manager</code></strong> ➔ <em>Manage ➔ Add Roles and Features ➔
+                                    Server Roles ➔ Print and Document Services ➔ Role Services: Print Server ➔
+                                    Install</em>.
+                            </div>
+                        </div>
+
+                        <div class="drawio-arrow">↓</div>
+
+                        <div class="drawio-card step-3">
+                            <div class="step-title">✉️ 3. Como testar</div>
+                            <div class="step-desc">Abrir console de gerenciamento de impressão:</div>
+                            <div class="step-code-clean">
+                                <span class="code-txt">printmanagement.msc</span>
+                                <button class="btn-copy-code"
+                                    onclick="copyText('printmanagement.msc', this)">Copiar</button>
+                            </div>
+                            <div style="font-size: 13.5px; color: #00D062; font-weight: 700; margin-top: 3px;">✓ Print
+                                Servers ➔ SRV-DC01 ativo e operacional.</div>
+                        </div>
+                    </div>
+
+                    <!-- Coluna 2 -->
+                    <div class="drawio-col">
+                        <div class="drawio-card step-1">
+                            <div class="step-title">👤 1. Precisa ser feito</div>
+                            <div class="step-desc">
+                                Criar a fila corporativa <strong><code>IMP_Geral</code></strong> no IP
+                                <code>192.168.10.20</code> publicada no AD.
+                            </div>
+                        </div>
+
+                        <div class="drawio-arrow">↓</div>
+
+                        <div class="drawio-card step-2">
+                            <div class="step-title">⚙️ 2. Como fazer</div>
+                            <div class="step-desc">
+                                <strong><code>printmanagement.msc</code></strong> ➔ <em>Print Servers ➔ SRV-DC01 ➔
+                                    Right-click "Printers" ➔ Add Printer... ➔ TCP/IP (192.168.10.20) ➔ Nome: IMP_Geral ➔
+                                    Marcar "Share this printer" e "List in the directory"</em>.
+                            </div>
+                        </div>
+
+                        <div class="drawio-arrow">↓</div>
+
+                        <div class="drawio-card step-3">
+                            <div class="step-title">✉️ 3. Como testar</div>
+                            <div class="step-desc">Conectar na impressora pela rede da estação:</div>
+                            <div class="step-code-clean">
+                                <span class="code-txt">\\SRV-DC01\IMP_Geral</span>
+                                <button class="btn-copy-code"
+                                    onclick="copyText('\\\\SRV-DC01\\IMP_Geral', this)">Copiar</button>
+                            </div>
+                            <div style="font-size: 13.5px; color: #00D062; font-weight: 700; margin-top: 3px;">✓ Fila
+                                pronta para receber impressões de todos os setores.</div>
+                        </div>
+                    </div>
+
+                    <!-- Coluna 3 -->
+                    <div class="drawio-col">
+                        <div class="drawio-card step-1">
+                            <div class="step-title">👤 1. Precisa ser feito</div>
+                            <div class="step-desc">
+                                Corrigir erro de conexão remota <strong><code>0x8007011b</code></strong> para permitir
+                                impressão direta das estações.
+                            </div>
+                        </div>
+
+                        <div class="drawio-arrow">↓</div>
+
+                        <div class="drawio-card step-2">
+                            <div class="step-title">⚙️ 2. Como fazer</div>
+                            <div class="step-desc">
+                                <strong>PowerShell (Admin)</strong>:
+                                <code>New-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Print" -Name "RpcAuthnLevelPrivacyEnabled" -Value 0 -PropertyType DWORD -Force; Restart-Service Spooler</code>.
+                            </div>
+                        </div>
+
+                        <div class="drawio-arrow">↓</div>
+
+                        <div class="drawio-card step-3">
+                            <div class="step-title">✉️ 3. Como testar</div>
+                            <div class="step-desc">
+                                No cliente: <em>Right-click em IMP_Geral ➔ Properties ➔ Print Test Page:</em> <br>
+                                <strong style="color:#00D062;">✓ Página de teste impressa sem travar.</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ========================================================
+                 SLIDE 5: ADLER - FIREWALL & DNS
+            ======================================================== -->
+            <section class="slide" id="slide-5" data-index="5">
+                <div class="slide-banner">
+                    <div class="slide-main-title">
+                        <span>🛡️</span> Windows Defender Firewall & Conectividade de Rede
+                    </div>
+                    <div class="slide-presenter-badge">
+                        <span>Apresentador:</span> Adler
+                    </div>
+                </div>
+
+                <div class="drawio-grid">
+
+                    <!-- Coluna 1 -->
+                    <div class="drawio-col">
+                        <div class="drawio-card step-1">
+                            <div class="step-title">👤 1. Precisa ser feito</div>
+                            <div class="step-desc">
+                                Manter o <strong>Firewall ativo</strong> nos 3 perfis (Domain, Private e Public) para
+                                segurança da rede.
+                            </div>
+                        </div>
+
+                        <div class="drawio-arrow">↓</div>
+
+                        <div class="drawio-card step-2">
+                            <div class="step-title">⚙️ 2. Como fazer</div>
+                            <div class="step-desc">
+                                <strong><code>wf.msc</code></strong> ➔ <em>Windows Defender Firewall Properties ➔ Abas
+                                    "Domain", "Private" e "Public Profile" ➔ Firewall state: "On (recommended)"</em>.
+                            </div>
+                        </div>
+
+                        <div class="drawio-arrow">↓</div>
+
+                        <div class="drawio-card step-3">
+                            <div class="step-title">✉️ 3. Como testar</div>
+                            <div class="step-desc">Checar status de proteção no console:</div>
+                            <div class="step-code-clean">
+                                <span class="code-txt">wf.msc</span>
+                                <button class="btn-copy-code" onclick="copyText('wf.msc', this)">Copiar</button>
+                            </div>
+                            <div style="font-size: 13.5px; color: #00D062; font-weight: 700; margin-top: 3px;">✓ Status
+                                verde ativo em Domain, Private e Public.</div>
+                        </div>
+                    </div>
+
+                    <!-- Coluna 2 -->
+                    <div class="drawio-col">
+                        <div class="drawio-card step-1">
+                            <div class="step-title">👤 1. Precisa ser feito</div>
+                            <div class="step-desc">
+                                Liberar o tráfego para <strong>compartilhamento SMB (Porta 445)</strong> e resposta a
+                                testes de <strong>Ping</strong>.
+                            </div>
+                        </div>
+
+                        <div class="drawio-arrow">↓</div>
+
+                        <div class="drawio-card step-2">
+                            <div class="step-title">⚙️ 2. Como fazer</div>
+                            <div class="step-desc">
+                                <strong><code>wf.msc</code></strong> ➔ <em>Inbound Rules ➔ Habilitar (Enable
+                                    Rule):</em><br>
+                                • <em>"File and Printer Sharing (SMB-In)"</em><br>
+                                • <em>"File and Printer Sharing (Echo Request - ICMPv4-In)"</em>.
+                            </div>
+                        </div>
+
+                        <div class="drawio-arrow">↓</div>
+
+                        <div class="drawio-card step-3">
+                            <div class="step-title">✉️ 3. Como testar</div>
+                            <div class="step-desc">Disparar Ping da estação para o servidor:</div>
+                            <div class="step-code-clean">
+                                <span class="code-txt">ping 192.168.10.2</span>
+                                <button class="btn-copy-code"
+                                    onclick="copyText('ping 192.168.10.2', this)">Copiar</button>
+                            </div>
+                            <div style="font-size: 13.5px; color: #00D062; font-weight: 700; margin-top: 3px;">✓ 0% de
+                                perda com latência &lt;1ms.</div>
+                        </div>
+                    </div>
+
+                    <!-- Coluna 3 -->
+                    <div class="drawio-col">
+                        <div class="drawio-card step-1">
+                            <div class="step-title">👤 1. Precisa ser feito</div>
+                            <div class="step-desc">
+                                Criar a <strong>resolução de DNS Reverso</strong> para resolver o IP
+                                <code>192.168.10.2</code> e evitar lentidão no logon.
+                            </div>
+                        </div>
+
+                        <div class="drawio-arrow">↓</div>
+
+                        <div class="drawio-card step-2">
+                            <div class="step-title">⚙️ 2. Como fazer</div>
+                            <div class="step-desc">
+                                <strong><code>dnsmgmt.msc</code></strong> ➔ <em>SRV-DC01 ➔ Reverse Lookup Zones ➔ New
+                                    Zone... ➔ Primary (IPv4: 192.168.10) ➔ New Pointer (PTR): IP .2 ➔
+                                    SRV-DC01.esperancadigital.local</em>.
+                            </div>
+                        </div>
+
+                        <div class="drawio-arrow">↓</div>
+
+                        <div class="drawio-card step-3">
+                            <div class="step-title">✉️ 3. Como testar</div>
+                            <div class="step-desc">Validar resolução reversa no Prompt (CMD):</div>
+                            <div class="step-code-clean">
+                                <span class="code-txt">nslookup 192.168.10.2</span>
+                                <button class="btn-copy-code"
+                                    onclick="copyText('nslookup 192.168.10.2', this)">Copiar</button>
+                            </div>
+                            <div style="font-size: 13.5px; color: #00D062; font-weight: 700; margin-top: 3px;">✓
+                                Retorna: SRV-DC01.esperancadigital.local.</div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ========================================================
+                 SLIDE 6: ENCERRAMENTO (100% LIMPO & CENTRALIZADO)
+            ======================================================== -->
+            <section class="slide" id="slide-6" data-index="6">
+                <div class="closing-centered-wrapper">
+                    
+                    <!-- Centro: Agradecimento Monumental -->
+                    <div class="closing-hero-centered">
+                        <div class="closing-icon-glow">🏛️</div>
+                        <h1 class="closing-main-title">
+                            Muito Obrigado pela <span>Atenção!</span>
+                        </h1>
+                        <p class="closing-sub-title">
+                            Administração, Segurança e Serviços Corporativos no <strong>Windows Server 2022</strong>
+                        </p>
+                        <div class="closing-institution-tag">
+                            Centro de Educação Tecnológica do Amazonas • CETAM 2026
+                        </div>
+                    </div>
+
+                    <!-- Rodapé: Referências Técnicas & Apoio em Linha Limpa -->
+                    <div class="closing-references-clean">
+                        <span class="ref-clean-label">📚 Referências & Suporte:</span>
+                        <span class="ref-clean-item">Microsoft Learn (GPMC Baseline)</span>
+                        <span class="ref-clean-sep">•</span>
+                        <span class="ref-clean-item">Microsoft TechNet (SMB & NTFS ACLs)</span>
+                        <span class="ref-clean-sep">•</span>
+                        <span class="ref-clean-item">Microsoft KB5005652 (RPC Spooler)</span>
+                        <span class="ref-clean-sep">•</span>
+                        <span class="ref-clean-item">Roteiro Técnico CETAM</span>
+                        <span class="ref-clean-sep">•</span>
+                        <span class="ref-clean-item" style="color: #38BDF8; font-weight: 700;">Google Gemini 3.7 & Antigravity IDE</span>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+
+        <!-- ========================================================
+             BARRA INFERIOR (FOOTER)
+        ======================================================== -->
+        <footer class="bottom-footer">
+            <div class="footer-slide-num">
+                Slide <span id="currentSlideNum">1</span> de <span id="totalSlidesNum">6</span>
+            </div>
+
+            <div class="footer-nav-help">
+                Navegar: <span class="key-pill">◀</span> <span class="key-pill">▶</span> ou <span
+                    class="key-pill">Espaço</span> | Início: <span class="key-pill">H</span> | Tela Cheia: <span
+                    class="key-pill">F</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Scripts Modulares -->
+    <script src="js/particles.js"></script>
+    <script src="js/presentation.js"></script>
+</body>
+
+</html>

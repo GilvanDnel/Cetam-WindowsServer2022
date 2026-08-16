@@ -1,0 +1,165 @@
+/* ========================================================
+   RESPONSIVIDADE: DESKTOP, NOTEBOOKS, TABLETS E SMARTPHONES
+   ======================================================== */
+
+/* ========================================================
+   NOTEBOOKS & TELAS COM ALTURA COMPACTA (< 760px)
+   ======================================================== */
+@media (max-height: 760px) {
+    .top-header {
+        height: 54px;
+    }
+    .bottom-footer {
+        height: 44px;
+    }
+    .slide-intro {
+        margin-bottom: 8px;
+        padding-bottom: 6px;
+    }
+    .pipeline-card {
+        padding: 8px 12px;
+    }
+    .card-header-mini {
+        margin-bottom: 3px;
+    }
+    .pipeline-connector {
+        font-size: 11px;
+        margin: -4px 0;
+    }
+    .cover-headline {
+        margin-bottom: 8px;
+    }
+}
+
+/* ========================================================
+   TABLETS (<= 1024px)
+   ======================================================== */
+@media (max-width: 1024px) {
+    .header-center-pill {
+        display: none;
+    }
+    .keyboard-hints span:not(:first-child) {
+        display: none;
+    }
+    .team-grid-5 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .pipeline-grid {
+        gap: 12px;
+    }
+}
+
+/* ========================================================
+   SMARTPHONES E TELAS MOBILE (<= 768px)
+   ======================================================== */
+@media (max-width: 768px) {
+    html, body {
+        overflow-y: auto;
+    }
+    
+    .presentation-container {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .top-header {
+        height: auto;
+        padding: 10px 14px;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .brand-section {
+        gap: 8px;
+    }
+
+    .brand-title {
+        font-size: 13px;
+    }
+
+    .brand-subtitle {
+        font-size: 10px;
+    }
+
+    .header-controls {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .btn-nav-top {
+        padding: 5px 10px;
+        font-size: 11px;
+    }
+
+    .slides-wrapper {
+        padding: 12px 14px;
+        overflow: visible;
+    }
+
+    .slide {
+        position: relative;
+        inset: auto;
+        opacity: 0;
+        display: none;
+        transform: none;
+    }
+
+    .slide.active {
+        opacity: 1;
+        display: flex;
+        transform: none;
+    }
+
+    .slide-intro {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .presenter-pill {
+        text-align: left;
+        width: 100%;
+    }
+
+    /* Pipeline vira cascata vertical no mobile */
+    .pipeline-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .pipeline-col {
+        background: rgba(10, 25, 47, 0.4);
+        padding: 10px;
+        border-radius: var(--radius-md);
+        border: 1px solid var(--border-glass);
+    }
+
+    .team-grid-5 {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .closing-split-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .test-matrix-12 {
+        grid-template-columns: 1fr;
+    }
+
+    .bottom-footer {
+        height: auto;
+        padding: 10px 14px;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .progress-track {
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .keyboard-hints {
+        display: none;
+    }
+}

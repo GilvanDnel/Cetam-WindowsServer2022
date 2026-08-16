@@ -1,0 +1,46 @@
+/* ========================================================
+   MARCAS D'ÁGUA DA FAUNA AMAZÔNICA (CETAM THEME)
+   ======================================================== */
+.watermark-animal {
+    position: absolute;
+    right: 3%;
+    bottom: 5%;
+    width: clamp(240px, 35vw, 420px);
+    height: clamp(240px, 35vh, 420px);
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.06;
+    color: var(--cetam-green-light);
+    filter: drop-shadow(0 0 20px rgba(0, 179, 84, 0.4));
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Marca d'água Onça (Slide 1 & Slide 2 - Força e Segurança) */
+.slide#slide-1 .watermark-animal,
+.slide#slide-2 .watermark-animal {
+    color: var(--cetam-gold);
+    opacity: 0.055;
+    transform: rotate(-5deg);
+}
+
+/* Marca d'água Boto (Slide 3 - Navegação e Fluidez de Arquivos) */
+.slide#slide-3 .watermark-animal {
+    color: var(--cetam-blue);
+    opacity: 0.07;
+    transform: rotate(8deg);
+}
+
+/* Marca d'água Harpia (Slide 4 & Slide 5 - Alcance, Rede e Firewall) */
+.slide#slide-4 .watermark-animal,
+.slide#slide-5 .watermark-animal {
+    color: var(--cetam-green-light);
+    opacity: 0.06;
+    transform: scale(1.05);
+}
+
+/* Marca d'água Arara (Slide 6 - Finalização e Sucesso) */
+.slide#slide-6 .watermark-animal {
+    color: var(--cetam-gold);
+    opacity: 0.065;
+    transform: rotate(-10deg);
+}

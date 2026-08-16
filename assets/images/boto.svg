@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" fill="currentColor">
+  <!-- Silhueta Estilizada de Boto-Cor-de-Rosa Amazônico saltando no Rio -->
+  <g opacity="0.85">
+    <path d="M 60 380 C 120 370, 180 300, 230 220 C 270 160, 320 120, 390 130 C 440 140, 460 170, 470 190 C 460 200, 430 205, 410 195 C 380 180, 330 190, 290 240 C 240 310, 180 380, 110 410 C 80 420, 50 405, 60 380 Z"/>
+    <!-- Bico característico e Nadadeiras -->
+    <path d="M 460 180 C 490 190, 485 200, 450 205 Z"/>
+    <path d="M 310 230 C 330 280, 350 310, 380 320 C 370 300, 350 260, 335 230 Z"/>
+    <!-- Barbatana Dorsal / Cauda -->
+    <path d="M 280 155 C 300 130, 320 140, 310 160 Z"/>
+    <path d="M 70 380 C 40 350, 30 390, 50 420 C 70 410, 80 395, 70 380 Z"/>
+    <!-- Ondas sutis do Rio Amazonas -->
+    <path d="M 40 450 Q 140 420, 240 450 T 440 450" fill="none" stroke="currentColor" stroke-width="4" opacity="0.4"/>
+  </g>
+</svg>
